@@ -1,0 +1,7 @@
+.DS_Store
+.vscode/*
+node_modules/
+*.zip
+.idea
+notes.md
+catch-of-the-day/build/
