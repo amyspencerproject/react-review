@@ -47,6 +47,11 @@ Anytime { } are used you are tell JSX that you are doing some Javascript stuff. 
 ### Adding CSS to React
 For integrating React into an existing web app you can just add the CSS styling with <link> in the head of the index.html file or what ever file has the mounting point for React.
 
-Another way is inline CSS or component CSS where only the CSS used for a component is imported into the component. This keeps everything tightly bound and you don't have one big compiled style file. This is used if you are using Saas or something similar that must be compiled.
+Another way is inline CSS or component CSS where only the CSS used for a component is imported into the component. This keeps everything tightly bound and you don't have one big compiled style file. The css is imported directy into the js component. This avoids a big css file that must be compiled.
 
-In this project the style.css is imported into the index.js file and the create React App knows deals with css updates for local dev. When this app is deployed then the css will need to be compiled.
+In this project the style.css is imported into the index.js file and the create-React-App knows deals with css updates for local dev. When this app is deployed then the css will need to be compiled.
+
+### App.js 
+Created the App.js file and will consider this to be the mother component that all the other components such as fish, inventory, order, etc will be under.
+
+Reminder to always start components with the imports, exports, class extends React.Component, and render() { return () }. Starting everytime with these basic elemements will save you debugging headaches.
