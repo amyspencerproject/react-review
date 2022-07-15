@@ -60,3 +60,9 @@ Reminder to always start components with the imports, exports, class extends Rea
 This component is a stateless component in that it only returns some HTML. Therefore it can be simplified to an arrow function/implicit return with no need for extending the class and have a render method inside the class. Because there is no longer a class the props can be passed into the function as an argument and the "this" is unnecessary and can be removed from inside the HTML element.
 
 Made the header tagline "Fresh Seafood Market" dynamic by passing tagline as data into Header component in App.js and then passing it as a prop into Header.js. This was mostly as a teaching example since there is really no reason to not hard code the tagline. 
+
+### React Routing
+There are three things that need to be routed. Inital page is the Store Picker (url is xxx.com/), after a Store is selected then the App component pulls up that store's page (url is xxx.com/store/store-name), and then we need a 404 error page for any other non-existent url (xxx.com/abjklmno). React does not come with a built in router so you need to add an external component to handle this. React Router and Next.js are two popular add ins. In this project React Router is used.
+
+The Router component has to be mounted to the DOM so it is imported into the index.js component. It becomes the only time we touch the DOM in this project. This component has some specific structure with BrowserRouter > Switch > Route.
+
