@@ -55,3 +55,8 @@ In this project the style.css is imported into the index.js file and the create-
 Created the App.js file and will consider this to be the mother component that all the other components such as fish, inventory, order, etc will be under.
 
 Reminder to always start components with the imports, exports, class extends React.Component, and render() { return () }. Starting everytime with these basic elemements will save you debugging headaches.
+
+### Header.js
+This component is a stateless component in that it only returns some HTML. Therefore it can be simplified to an arrow function/implicit return with no need for extending the class and have a render method inside the class. Because there is no longer a class the props can be passed into the function as an argument and the "this" is unnecessary and can be removed from inside the HTML element.
+
+Made the header tagline "Fresh Seafood Market" dynamic by passing tagline as data into Header component in App.js and then passing it as a prop into Header.js. This was mostly as a teaching example since there is really no reason to not hard code the tagline. 
