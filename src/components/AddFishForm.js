@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddFish extends React.Component {
+class AddFishForm extends React.Component {
 
     nameRef = React.createRef();
     priceRef = React.createRef();
@@ -15,13 +15,16 @@ class AddFish extends React.Component {
         // make an object from the input values
         const fish = {
             name: this.nameRef.current.value,
-            price: this.priceRef.current.value,
+            price: parseFloat(this.priceRef.current.value),
             status: this.statusRef.current.value,
             desc: this.descRef.current.value,
             image: this.imageRef.current.value
         }
-        
-        console.log(fish);
+        //get data from fish object into State via the addFish()
+        this.props.addFish(fish);
+        // console.log(fish);
+        // refresh the form
+        event.currentTarget.reset();
     };
     render() {
         return (
@@ -40,4 +43,4 @@ class AddFish extends React.Component {
     }
 }
 
-export default AddFish;
+export default AddFishForm;
