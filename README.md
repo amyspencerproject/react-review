@@ -28,19 +28,19 @@ Use className not class for styling elements. This is made super easy with Emmet
 
 Use paranthesis to overcome ASI when returning and remember that return in a keyword not a function so put a space before ()
 
-return (
-    <p>Silly ASI this is just some JSX</p>
-)
+> return (
+>    <p>Silly ASI this is just some JSX</p>
+> )
 
-Use <React.Fragment> to allow multiple elements/children elements in a return
+> Use <React.Fragment> to allow multiple elements/children elements in a return
 
-return (
-    <React.Fragment>
-        <h2>Thing one</h2>
-        <h2>Thing two</h2>
-        <p>All the Things are present!</p>
-    </React.Fragment>
-)
+> return (
+>    <React.Fragment>
+>        <h2>Thing one</h2>
+>        <h2>Thing two</h2>
+>        <p>All the Things are present!</p>
+>    </React.Fragment>
+> )
 
 Anytime { } are used you are tell JSX that you are doing some Javascript stuff. Curly brackets not just for commenting in JSX.
 
@@ -65,4 +65,13 @@ Made the header tagline "Fresh Seafood Market" dynamic by passing tagline as dat
 There are three things that need to be routed. Inital page is the Store Picker (url is xxx.com/), after a Store is selected then the App component pulls up that store's page (url is xxx.com/store/store-name), and then we need a 404 error page for any other non-existent url (xxx.com/abjklmno). React does not come with a built in router so you need to add an external component to handle this. React Router and Next.js are two popular add ins. In this project React Router is used.
 
 The Router component has to be mounted to the DOM so it is imported into the index.js component. It becomes the only time we touch the DOM in this project. This component has some specific structure with BrowserRouter > Switch > Route.
+
+The form/event handler in the StorePicker component grabs and stores the user selected store name. Uisng this.props.history.push(`${}`) this data is push back to the parent component Router and the url is changed with out doing a page refresh.
+
+### Event Handlers
+Just a reminder that in React events are handled in-line in the JSX. So a button in the return would be <button onClick="this.handleClick"> and then there is a secondary method in the component called handleClick() { alert('Hey!!')}. You do not want to put the () on the end of this.handleClick because it will run automatically on page load.
+
+Forms will have onSubmit event handlers. The default is to refresh the page after a submit event. This is often no what you want and especially for the store-picker form in this project where the store names are generated in JS not form a server. You must add event.preventDefault() in the event handler function with event as the argument, see StorePicker compnent for example.
+
+Accessing _this_ from a custom method is not so easy. This is due to binding or lack of binding to the React.Component. For a default method like render() you can use _this_ to console.log values from a component. But you cannot do this with the goToStore function that is handling the form being submitted/input text. You do not want to directly touch the DOM so you do a crazy thing with ref and sometimes using constructors with a super() funtion inside. Or you can do what was done in this project; add ref={this.myInput} to form, define myInput as a variable that equals React.createRef(), make event handler function and arrow function, and then really skull down on the exact path in the component object where the input text lives.
 
